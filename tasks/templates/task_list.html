@@ -1,0 +1,9 @@
+<h1>Lista De Tarefas</h1>
+
+{% for task in tasks %}
+    <h2>{{ task.title }}</h2>
+    <p>{{ task.content }}</p>
+    <div>
+        <img src="{{ task.cover }}" width="200" alt="">
+    </div>
+{% endfor %}

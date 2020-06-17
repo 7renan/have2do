@@ -1,0 +1,30 @@
+<h1>Criar Tarefa</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div>
+        <label for="title">
+            Titulo:
+        </label>
+        <input type="text" id="title" name="title">
+    </div>
+    <br>
+    <div>
+        <label for="content">
+            Conteúdo:
+        </label>
+        <input type="text" id="content" name="content">
+    </div>
+    <br>
+    <div>
+        <label for="cover">
+            Imagem:
+        </label>
+        <input type="text" id="cover" name="cover">
+    </div>
+    <br>
+    <div>
+        <button type="submit">Salvar</button>
+    </div>
+</form>
