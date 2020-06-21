@@ -32,7 +32,8 @@
                     <td>{{ task.description }}</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-info">Ver</a> |
-                        <a href="{% url 'tasks:task_delete' task.pk %}" class="btn btn-sm btn-danger">Excluir</a>
+                        <a href="{% url 'tasks:task_delete' task.pk %}" class="btn btn-sm btn-danger">Excluir</a> |
+                        <a href="{% url 'tasks:task_update' task.pk %}" class="btn btn-sm btn-secondary">Editar</a>
                     </td>
                 </tr>
                 {% empty %}
