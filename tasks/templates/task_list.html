@@ -1,9 +1,47 @@
-<h1>Lista De Tarefas</h1>
+<!doctype html>
+<html lang="pt">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{% for task in tasks %}
-    <h2>{{ task.title }}</h2>
-    <p>{{ task.content }}</p>
-    <div>
-        <img src="{{ task.cover }}" width="200" alt="">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Lista De Tarefas</h1>
+
+    <div class="col-sm-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.pk }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-info">Ver</a> |
+                        <a href="{% url 'tasks:task_delete' task.pk %}" class="btn btn-sm btn-danger">Excluir</a> |
+                        <a href="{% url 'tasks:task_update' task.pk %}" class="btn btn-sm btn-secondary">Editar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                    <td colspan="4" class="text-center">Nenhuma Tarefa</td>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-{% endfor %}
+</div>
+</body>
+</html>

@@ -1,30 +1,44 @@
-<h1>Criar Tarefa</h1>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form method="POST">
-    {% csrf_token %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <div>
-        <label for="title">
-            Titulo:
-        </label>
-        <input type="text" id="title" name="title">
+    <title>Task | Criar</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Criação De Tarefas</h1>
+    <div class="mt-4">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group col-sm-4">
+                <label for="title">
+                    Título:
+                </label>
+                <input type="text" id="title" name="title" class="form-control">
+            </div>
+
+            <div class="form-group col-sm-4">
+                <label for="title">
+                    Descrição:
+                </label>
+                <textarea name="description" id="description" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <button class="btn btn-success">
+                    Salvar
+                </button>
+            </div>
+
+        </form>
     </div>
-    <br>
-    <div>
-        <label for="content">
-            Conteúdo:
-        </label>
-        <input type="text" id="content" name="content">
-    </div>
-    <br>
-    <div>
-        <label for="cover">
-            Imagem:
-        </label>
-        <input type="text" id="cover" name="cover">
-    </div>
-    <br>
-    <div>
-        <button type="submit">Salvar</button>
-    </div>
-</form>
+</div>
+
+</body>
+</html>
