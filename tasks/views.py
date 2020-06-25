@@ -3,13 +3,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 # models
 from .models import Task
 
+# forms
+from .forms import TaskForm
+
 
 # list
 def task_list(request):
     tasks = Task.objects.all()
-
+    form = TaskForm
     context = {
         'tasks': tasks,
+        'form':form,
     }
 
     return render(request, 'task_list.html', context)
