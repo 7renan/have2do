@@ -44,15 +44,14 @@ def task_delete(request, pk_task):
 # update
 def task_update(request, pk_task):
     task = Task.objects.get(pk=pk_task)
+    form = TaskForm(request.POST or None, instance=task)
     context = {
-        'task':task
+        'task':task,
+        'form': form,
     }
 
     if request.method == 'POST':
-        new_title = request.POST['title']
-        new_description = request.POST['description']
-        task.title = new_title
-        task.description = new_description
-        task.save()
+        if form.is_valid():
+            form.save()
         return redirect('tasks:task_list')
     return render(request, 'task_update.html', context)
