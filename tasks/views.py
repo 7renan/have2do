@@ -21,16 +21,16 @@ def task_list(request):
 
 # create
 def task_create(request):
-    if request.method == 'POST':
-        title = request.POST['title']
-        description = request.POST['description']
+    form = TaskForm(request.POST or None)
+    context = {
+        'form': form
+    }
 
-        Task.objects.create(
-            title=title,
-            description=description
-        )
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
         return redirect('tasks:task_list')
-    return render(request, 'task_create.html')
+    return render(request, 'task_create.html', context)
 
 
 # delete
